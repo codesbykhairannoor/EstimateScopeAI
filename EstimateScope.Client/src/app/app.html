@@ -1,0 +1,14 @@
+<div class="min-h-screen bg-slate-950 text-white font-sans selection:bg-blue-500/30">
+  
+  <app-hero 
+    [isAnalyzing]="isAnalyzing" 
+    (onAnalyze)="handleAnalyze($event)">
+  </app-hero>
+
+  <app-audit-result 
+    *ngIf="results.length > 0"
+    [data]="results"
+    [riskLevel]="currentRisk">
+  </app-audit-result>
+
+</div>

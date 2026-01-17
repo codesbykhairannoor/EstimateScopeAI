@@ -1,0 +1,36 @@
+<div *ngIf="data && data.length > 0" class="mx-auto max-w-5xl px-6 pb-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
+  
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold text-white">📊 Hasil Audit Proyek</h2>
+    <span [class]="'px-4 py-1.5 rounded-full border text-xs font-bold uppercase tracking-wider ' + riskColorClass">
+      Risk: {{ riskLevel }}
+    </span>
+  </div>
+
+  <div class="overflow-hidden rounded-xl border border-slate-700 bg-slate-800/50 shadow-xl backdrop-blur">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider">
+          <tr>
+            <th class="p-5 font-semibold">Task Breakdown</th>
+            <th class="p-5 font-semibold text-center w-24">Hours</th>
+            <th class="p-5 font-semibold text-center w-32">Cost</th>
+            <th class="p-5 font-semibold w-1/3">⚠️ Out of Scope</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-700/50 text-sm">
+          <tr *ngFor="let item of data" class="hover:bg-blue-500/5 transition-colors">
+            <td class="p-5 text-slate-200 font-medium">{{ item.taskName }}</td>
+            <td class="p-5 text-center text-slate-400 font-mono">{{ item.estimatedHours }}h</td>
+            <td class="p-5 text-center text-emerald-400 font-bold font-mono">${{ item.estimatedCost }}</td>
+            <td class="p-5 text-slate-500 italic">{{ item.outOfScope }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mt-4 text-right text-slate-500 text-sm">
+    *Estimasi ini dihasilkan oleh AI (Gemini 2.5 Flash) dan hanya sebagai referensi awal.
+  </div>
+</div>
