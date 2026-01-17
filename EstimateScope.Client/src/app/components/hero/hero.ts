@@ -6,11 +6,11 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-hero',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './hero.component.html'
+  templateUrl: './hero.html' // Sesuaikan nama file
 })
 export class HeroComponent {
-  @Input() isAnalyzing = false; // Menerima status loading dari induk
-  @Output() onAnalyze = new EventEmitter<string>(); // Mengirim request ke induk
+  @Input() isAnalyzing = false;
+  @Output() onAnalyze = new EventEmitter<string>();
 
   description: string = '';
 

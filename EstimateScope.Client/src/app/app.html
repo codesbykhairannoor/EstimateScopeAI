@@ -1,14 +1,19 @@
-<div class="min-h-screen bg-slate-950 text-white font-sans selection:bg-blue-500/30">
+<div class="min-h-screen bg-slate-50 text-slate-900 font-sans">
   
-  <app-hero 
-    [isAnalyzing]="isAnalyzing" 
-    (onAnalyze)="handleAnalyze($event)">
-  </app-hero>
+  <app-navbar></app-navbar>
 
-  <app-audit-result 
-    *ngIf="results.length > 0"
-    [data]="results"
-    [riskLevel]="currentRisk">
-  </app-audit-result>
+  <main>
+    <app-hero [isAnalyzing]="isAnalyzing" (onAnalyze)="handleAnalyze($event)"></app-hero>
 
+    <div *ngIf="isAnalyzing" class="max-w-5xl mx-auto px-6 py-10">
+      <div class="animate-pulse flex flex-col gap-4">
+        <div class="h-10 bg-amber-100 rounded-lg w-1/4"></div>
+        <div class="h-64 bg-slate-200/50 rounded-3xl border border-slate-200"></div>
+      </div>
+    </div>
+
+    <app-audit-result *ngIf="!isAnalyzing && results.length > 0" [data]="results" [riskLevel]="currentRisk"></app-audit-result>
+  </main>
+
+  <app-footer></app-footer>
 </div>

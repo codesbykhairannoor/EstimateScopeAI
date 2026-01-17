@@ -5,18 +5,17 @@ import { CommonModule } from '@angular/common';
   selector: 'app-audit-result',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './audit-result.component.html'
+  templateUrl: './audit-result.html' // Sesuaikan nama file
 })
 export class AuditResultComponent {
   @Input() data: any[] = [];
-  @Input() riskLevel: string = 'Low'; // Default
+  @Input() riskLevel: string = 'Low';
 
-  // Helper buat warna badge risiko
   get riskColorClass() {
     switch (this.riskLevel?.toLowerCase()) {
-      case 'high': return 'bg-red-500/10 text-red-400 border-red-500/20';
-      case 'medium': return 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20';
-      default: return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+      case 'high': return 'bg-red-50 text-red-600 border-red-100';
+      case 'medium': return 'bg-amber-50 text-amber-600 border-amber-100';
+      default: return 'bg-emerald-50 text-emerald-600 border-emerald-100';
     }
-  }
+}
 }

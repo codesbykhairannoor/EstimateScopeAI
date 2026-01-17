@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EstimateService } from './services/estimate'; // Sesuaikan path service lu
-import { HeroComponent } from './components/hero/hero.component';
-import { AuditResultComponent } from './components/audit-result/audit-result.component';
+import { EstimateService } from './services/estimate'; 
+import { HeroComponent } from './components/hero/hero';
+import { AuditResultComponent } from './components/audit-result/audit-result';
+import { NavbarComponent } from './components/navbar/navbar'; // Import Navbar
+import { FooterComponent } from './components/footer/footer'; // Import Footer
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeroComponent, AuditResultComponent], // Import komponen baru
-  templateUrl: './app.component.html',
+  imports: [CommonModule, HeroComponent, AuditResultComponent, NavbarComponent, // Tambahkan di sini
+    FooterComponent ],
+  templateUrl: './app.html', // Sesuaikan nama file
 })
 export class AppComponent {
   isAnalyzing = false;
@@ -17,19 +20,17 @@ export class AppComponent {
 
   constructor(private estimateService: EstimateService) {}
 
-  // Fungsi ini dipanggil sama Hero Component
   handleAnalyze(description: string) {
     this.isAnalyzing = true;
-    this.results = []; // Kosongkan dulu
+    this.results = [];
 
     this.estimateService.sendProjectDescription(description).subscribe({
       next: (res: any) => {
         this.results = res.data;
-        this.currentRisk = res.riskLevel || 'Medium'; // Ambil risk level dari API
+        this.currentRisk = res.riskLevel || 'Low';
         this.isAnalyzing = false;
       },
       error: (err) => {
-        alert('Gagal koneksi ke AI. Cek console.');
         console.error(err);
         this.isAnalyzing = false;
       }
