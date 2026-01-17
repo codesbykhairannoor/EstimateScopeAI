@@ -11,8 +11,8 @@ export class LangService {
     id: {
       NAV: { HOME: 'Beranda', AUDIT: 'Mulai Audit', PRICING: 'Harga', FAQ: 'Tanya Jawab' },
       HOME: {
-        HERO_TITLE_PREFIX: 'Estimasi Proyek',
-        HERO_TITLE_SUFFIX: 'Tanpa Drama',
+       HERO_TITLE_PREFIX: 'Estimasi Proyek Berbasis',
+HERO_TITLE_SUFFIX: 'AI Tanpa Drama',
         HERO_DESC: 'Jangan biarkan klien mendikte harga sembarangan. Dapatkan hitungan biaya, waktu, dan batasan lingkup yang logis berbasis AI dalam hitungan detik.',
         BTN_PRIMARY: 'Mulai Audit Gratis 🚀',
         BTN_SECONDARY: 'Lihat Contoh',
@@ -82,8 +82,8 @@ export class LangService {
     en: {
       NAV: { HOME: 'Home', AUDIT: 'Start Audit', PRICING: 'Pricing', FAQ: 'FAQ' },
       HOME: {
-        HERO_TITLE_PREFIX: 'Project Estimation',
-        HERO_TITLE_SUFFIX: 'No More Drama',
+       HERO_TITLE_PREFIX: 'AI-Powered Estimation,',
+HERO_TITLE_SUFFIX: 'Zero Project Drama',
         HERO_DESC: 'Don’t let clients dictate pricing blindly. Get logical, AI-based cost, time, and scope calculations in seconds.',
         BTN_PRIMARY: 'Start Free Audit 🚀',
         BTN_SECONDARY: 'View Samples',
