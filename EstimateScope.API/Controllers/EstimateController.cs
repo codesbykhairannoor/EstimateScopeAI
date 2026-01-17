@@ -15,7 +15,7 @@ namespace EstimateScope.API.Controllers
 
         public EstimateController(IConfiguration configuration)
         {
-            _apiKey = configuration["Gemini:ApiKey"];
+            _apiKey = configuration["Gemini:ApiKey"] ?? "";
         }
 
         [HttpPost("analyze")]

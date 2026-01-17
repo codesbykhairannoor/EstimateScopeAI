@@ -1,31 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { LangService } from '../../services/lang.service';
 
 @Component({
+  selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule],
   template: `
-    <div class="py-20 px-6 max-w-4xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">{{ 'FAQ.TITLE' | translate }}</h2>
-      
-      <div class="space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-          <h3 class="text-xl font-bold text-red-600 mb-2">{{ 'FAQ.Q1' | translate }}</h3>
-          <p class="text-slate-600 leading-relaxed">{{ 'FAQ.A1' | translate }}</p>
-        </div>
+    <section class="py-24 bg-white min-h-screen">
+      <div class="max-w-4xl mx-auto px-6">
         
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-          <h3 class="text-xl font-bold text-red-600 mb-2">{{ 'FAQ.Q2' | translate }}</h3>
-          <p class="text-slate-600 leading-relaxed">{{ 'FAQ.A2' | translate }}</p>
+        <div class="text-center mb-16">
+          <h1 class="text-4xl font-bold text-slate-900 mb-4">{{ lang.t().FAQ.TITLE }}</h1>
+          <p class="text-slate-500 text-lg">{{ lang.t().FAQ.SUBTITLE }}</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-          <h3 class="text-xl font-bold text-red-600 mb-2">{{ 'FAQ.Q3' | translate }}</h3>
-          <p class="text-slate-600 leading-relaxed">{{ 'FAQ.A3' | translate }}</p>
+        <div class="space-y-6">
+          <div *ngFor="let item of lang.t().FAQ.ITEMS" class="border border-slate-200 rounded-2xl p-6 hover:border-red-200 hover:bg-red-50/30 transition-all">
+            <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3">
+              <span class="text-red-600">Q.</span> {{ item.q }}
+            </h3>
+            <p class="text-slate-600 leading-relaxed pl-8">
+              {{ item.a }}
+            </p>
+          </div>
         </div>
+
+        <div class="mt-20 text-center p-8 bg-slate-50 rounded-3xl border border-slate-200">
+          <p class="text-slate-500 mb-4">Masih bingung?</p>
+          <button class="px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-red-600 transition-colors">
+            Hubungi Support
+          </button>
+        </div>
+
       </div>
-    </div>
+    </section>
   `
 })
-export class FaqPage {}
+export class FaqPage {
+  lang = inject(LangService);
+}

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LangService } from '../../services/lang.service';
 
 @Component({
   selector: 'app-hero',
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class HeroComponent {
   @Input() isAnalyzing = false;
   @Output() onAnalyze = new EventEmitter<any>();
+  lang = inject(LangService);
 
   // Model data form
   projectData = {
