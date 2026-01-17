@@ -12,7 +12,11 @@
       </div>
     </div>
 
-    <app-audit-result *ngIf="!isAnalyzing && results.length > 0" [data]="results" [riskLevel]="currentRisk"></app-audit-result>
+    <app-audit-result 
+  *ngIf="!isAnalyzing && results.length > 0"
+  [data]="results"
+  [riskLevel]="currentRisk"
+  [projectInfo]="lastProjectData"> </app-audit-result>
   </main>
 
   <app-footer></app-footer>

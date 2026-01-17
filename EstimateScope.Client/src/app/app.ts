@@ -17,22 +17,24 @@ export class AppComponent {
   isAnalyzing = false;
   results: any[] = [];
   currentRisk: string = 'Low';
+  lastProjectData: any = {}; // Simpan buat PDF
 
   constructor(private estimateService: EstimateService) {}
 
-  handleAnalyze(description: string) {
+  handleAnalyze(formData: any) {
     this.isAnalyzing = true;
+    this.lastProjectData = formData; // Simpan data input (rate, type, dll)
     this.results = [];
 
-    this.estimateService.sendProjectDescription(description).subscribe({
+    this.estimateService.analyzeProject(formData).subscribe({
       next: (res: any) => {
         this.results = res.data;
-        this.currentRisk = res.riskLevel || 'Low';
+        this.currentRisk = res.riskLevel;
         this.isAnalyzing = false;
       },
-      error: (err) => {
-        console.error(err);
+      error: () => {
         this.isAnalyzing = false;
+        alert('Audit Gagal. Cek API Key atau Koneksi.');
       }
     });
   }

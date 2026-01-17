@@ -6,17 +6,25 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-hero',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './hero.html' // Sesuaikan nama file
+  templateUrl: './hero.html'
 })
 export class HeroComponent {
   @Input() isAnalyzing = false;
-  @Output() onAnalyze = new EventEmitter<string>();
+  @Output() onAnalyze = new EventEmitter<any>();
 
-  description: string = '';
+  // Model data form
+  projectData = {
+    description: '',
+    projectType: 'Web Development',
+    complexity: 'Medium',
+    hourlyRate: 25, // Default rate
+    duration: '1 Month'
+  };
 
   submitAudit() {
-    if (this.description.trim()) {
-      this.onAnalyze.emit(this.description);
+    if (this.projectData.description.trim()) {
+      // Kirim object lengkap ke App Component
+      this.onAnalyze.emit(this.projectData);
     }
   }
 }

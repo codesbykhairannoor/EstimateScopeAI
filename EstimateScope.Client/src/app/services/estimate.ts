@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class EstimateService {
-  // Cek port ASP.NET lu lagi (tadi 5062 kan?)
+  // Ganti URL sesuai port backend lu
   private apiUrl = 'http://localhost:5062/api/estimate/analyze'; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  sendProjectDescription(desc: string): Observable<any> {
-    return this.http.post(this.apiUrl, { description: desc });
+  // Function terima object lengkap, bukan string doang
+  analyzeProject(data: any): Observable<any> {
+    return this.http.post(this.apiUrl, data);
   }
 }
