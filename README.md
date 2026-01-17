@@ -104,6 +104,7 @@ closeMenu() {
 ---
 
 **Developed with ❤️ by Khairannoor**
+© 2026 Khairannoor. All Rights Reserved. Unauthorized copying, modification, distribution, or use of this software is implementation strictly prohibited.
 
 ```
 
