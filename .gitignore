@@ -3,23 +3,23 @@
 **/dist/
 .npm
 .vscode/
+.angular/
+*.log
 
 # .NET (ASP.NET)
 **/bin/
 **/obj/
 *.user
 *.suo
-appsettings.Development.json
+.vs/
 
-# .NET Ignored
+# --- PENTING: JANGAN BIARKAN KEY BOCOR ---
+# Mengabaikan semua file appsettings (termasuk yang utama)
+**/appsettings.json
+**/appsettings.Development.json
+# ----------------------------------------
+
+# EstimateScope Specific
 EstimateScope.API/bin/
 EstimateScope.API/obj/
 EstimateScope.API/.vs/
-EstimateScope.API/appsettings.Development.json
-
-# Angular Ignored
-node_modules/
-dist/
-.angular/
-.vscode/
-*.log
