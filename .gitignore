@@ -10,3 +10,16 @@
 *.user
 *.suo
 appsettings.Development.json
+
+# .NET Ignored
+EstimateScope.API/bin/
+EstimateScope.API/obj/
+EstimateScope.API/.vs/
+EstimateScope.API/appsettings.Development.json
+
+# Angular Ignored
+node_modules/
+dist/
+.angular/
+.vscode/
+*.log
