@@ -10,7 +10,7 @@ RUN npm run build --configuration=production
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
 # Copy hasil build Angular ke folder default Nginx
-COPY --from=build /app/dist/estimate-scope.client/browser /usr/share/nginx/html
+COPY --from=build /app/dist/EstimateScope.Client/browser /usr/share/nginx/html
 
 # Tambahkan config Nginx biar refresh page gak 404
 RUN echo 'server { \
