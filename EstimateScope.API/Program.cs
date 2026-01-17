@@ -34,7 +34,7 @@ app.UseRouting(); // Harus ada sebelum UseCors
 app.UseCors("AllowAngular"); // Harus ada sebelum UseAuthorization
 
 // MATIKAN INI JIKA LU MAU MAIN DI HTTP (5062) SAJA
-app.UseHttpsRedirection(); 
+// app.UseHttpsRedirection(); 
 
 app.UseAuthorization();
 
