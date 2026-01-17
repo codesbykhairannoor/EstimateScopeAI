@@ -1,30 +1,27 @@
-<section class="py-12 md:py-20 px-6 bg-gradient-to-b from-amber-50/50 to-slate-50">
+<section class="py-12 md:py-20 px-6 bg-gradient-to-b from-red-50/50 to-slate-50">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10">
       <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-        Project Scope <span class="text-amber-500">Auditor</span>
+        Project Scope <span class="text-red-600">Auditor</span>
       </h1>
       <p class="text-slate-500">Tentukan parameter proyek lu biar estimasinya akurat.</p>
     </div>
 
-    <div class="bg-white border border-slate-200 rounded-[2rem] shadow-xl shadow-amber-100/50 p-6 md:p-8">
-      
+    <div class="bg-white border border-slate-200 rounded-[2rem] shadow-xl shadow-red-100/30 p-6 md:p-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        
         <div>
           <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Project Domain</label>
-          <select [(ngModel)]="projectData.projectType" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-amber-500 outline-none">
+          <select [(ngModel)]="projectData.projectType" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-red-500 outline-none">
             <option value="Web Development">Web Development</option>
             <option value="Mobile App">Mobile App</option>
             <option value="UI/UX Design">UI/UX Design</option>
-            <option value="Architecture/Construction">Architecture (Bangun Rumah)</option>
-            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Architecture/Construction">Architecture</option>
           </select>
         </div>
 
         <div>
           <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Complexity</label>
-          <select [(ngModel)]="projectData.complexity" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-amber-500 outline-none">
+          <select [(ngModel)]="projectData.complexity" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-red-500 outline-none">
             <option value="Simple (MVP)">Simple (MVP)</option>
             <option value="Medium">Medium (Standard)</option>
             <option value="Complex (Enterprise)">Complex (Enterprise)</option>
@@ -35,33 +32,32 @@
           <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Hourly Rate ($)</label>
           <div class="relative">
             <span class="absolute left-4 top-3 text-slate-400">$</span>
-            <input type="number" [(ngModel)]="projectData.hourlyRate" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 pl-8 text-slate-700 focus:ring-2 focus:ring-amber-500 outline-none font-mono font-bold">
+            <input type="number" [(ngModel)]="projectData.hourlyRate" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 pl-8 text-slate-700 focus:ring-2 focus:ring-red-500 outline-none font-mono font-bold">
           </div>
         </div>
 
         <div>
           <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Est. Timeline</label>
-          <input type="text" [(ngModel)]="projectData.duration" placeholder="e.g. 2 Weeks" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-amber-500 outline-none">
+          <input type="text" [(ngModel)]="projectData.duration" placeholder="e.g. 2 Weeks" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-700 focus:ring-2 focus:ring-red-500 outline-none">
         </div>
       </div>
 
       <div class="mb-8">
-        <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Project Details / Requirements</label>
+        <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Project Details</label>
         <textarea 
           [(ngModel)]="projectData.description"
           rows="4"
-          class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 outline-none transition-all resize-none text-slate-800 placeholder:text-slate-400"
-          placeholder="Jelaskan detailnya... Contoh: Saya mau buat website profil sekolah dengan fitur galeri foto, berita, dan pendaftaran siswa baru."></textarea>
+          class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-red-500 outline-none transition-all resize-none text-slate-800 placeholder:text-slate-400"
+          placeholder="Jelaskan detailnya..."></textarea>
       </div>
 
       <button 
         (click)="submitAudit()"
         [disabled]="isAnalyzing || !projectData.description"
-        class="w-full bg-amber-500 hover:bg-amber-600 disabled:bg-slate-200 disabled:text-slate-400 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-amber-200 flex items-center justify-center gap-2">
+        class="w-full bg-red-600 hover:bg-red-700 disabled:bg-slate-200 disabled:text-slate-400 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-red-200 flex items-center justify-center gap-2">
         <span *ngIf="!isAnalyzing">🚀 Run Advanced Audit</span>
         <div *ngIf="isAnalyzing" class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
       </button>
-
     </div>
   </div>
 </section>

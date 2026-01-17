@@ -1,5 +1,4 @@
 <div class="min-h-screen bg-slate-50 text-slate-900 font-sans">
-  
   <app-navbar></app-navbar>
 
   <main>
@@ -7,16 +6,17 @@
 
     <div *ngIf="isAnalyzing" class="max-w-5xl mx-auto px-6 py-10">
       <div class="animate-pulse flex flex-col gap-4">
-        <div class="h-10 bg-amber-100 rounded-lg w-1/4"></div>
+        <div class="h-10 bg-red-100 rounded-lg w-1/4"></div>
         <div class="h-64 bg-slate-200/50 rounded-3xl border border-slate-200"></div>
       </div>
     </div>
 
     <app-audit-result 
-  *ngIf="!isAnalyzing && results.length > 0"
-  [data]="results"
-  [riskLevel]="currentRisk"
-  [projectInfo]="lastProjectData"> </app-audit-result>
+      *ngIf="!isAnalyzing && results.length > 0"
+      [data]="results"
+      [riskLevel]="currentRisk"
+      [projectInfo]="lastProjectData"> 
+    </app-audit-result>
   </main>
 
   <app-footer></app-footer>

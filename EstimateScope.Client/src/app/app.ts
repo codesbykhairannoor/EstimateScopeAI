@@ -1,41 +1,28 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EstimateService } from './services/estimate'; 
-import { HeroComponent } from './components/hero/hero';
-import { AuditResultComponent } from './components/audit-result/audit-result';
-import { NavbarComponent } from './components/navbar/navbar'; // Import Navbar
-import { FooterComponent } from './components/footer/footer'; // Import Footer
+import { RouterModule } from '@angular/router'; // Import Router
+import { NavbarComponent } from './components/navbar/navbar';
+import { FooterComponent } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeroComponent, AuditResultComponent, NavbarComponent, // Tambahkan di sini
-    FooterComponent ],
-  templateUrl: './app.html', // Sesuaikan nama file
+  imports: [
+    CommonModule, 
+    RouterModule, // WAJIB ADA
+    NavbarComponent, 
+    FooterComponent
+  ],
+  template: `
+    <div class="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
+      <app-navbar></app-navbar>
+
+      <main class="flex-grow">
+        <router-outlet></router-outlet>
+      </main>
+
+      <app-footer></app-footer>
+    </div>
+  `
 })
-export class AppComponent {
-  isAnalyzing = false;
-  results: any[] = [];
-  currentRisk: string = 'Low';
-  lastProjectData: any = {}; // Simpan buat PDF
-
-  constructor(private estimateService: EstimateService) {}
-
-  handleAnalyze(formData: any) {
-    this.isAnalyzing = true;
-    this.lastProjectData = formData; // Simpan data input (rate, type, dll)
-    this.results = [];
-
-    this.estimateService.analyzeProject(formData).subscribe({
-      next: (res: any) => {
-        this.results = res.data;
-        this.currentRisk = res.riskLevel;
-        this.isAnalyzing = false;
-      },
-      error: () => {
-        this.isAnalyzing = false;
-        alert('Audit Gagal. Cek API Key atau Koneksi.');
-      }
-    });
-  }
-}
+export class AppComponent {}

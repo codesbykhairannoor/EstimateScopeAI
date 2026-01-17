@@ -1,0 +1,58 @@
+{
+  "NAV": {
+    "HOME": "Beranda",
+    "AUDIT": "Mulai Audit",
+    "PRICING": "Langganan",
+    "FAQ": "Tanya Jawab",
+    "LOGIN": "Masuk"
+  },
+  "HOME": {
+    "TITLE_PREFIX": "Estimasi Proyek",
+    "TITLE_SUFFIX": "Tanpa Drama",
+    "SUBTITLE": "Gunakan kecerdasan buatan untuk menghitung biaya, risiko, dan batasan proyek software Anda secara akurat dalam hitungan detik.",
+    "CTA_PRIMARY": "Coba Audit Sekarang",
+    "CTA_SECONDARY": "Pelajari Cara Kerjanya",
+    "FEATURE_1": "Akurasi Tinggi",
+    "FEATURE_2": "Analisis Risiko",
+    "FEATURE_3": "Ekspor PDF"
+  },
+  "AUDIT": {
+    "TITLE": "Auditor Lingkup Proyek",
+    "SUBTITLE": "Isi detail proyek di bawah ini, AI kami akan memecahnya menjadi fase-fase logis.",
+    "INPUT_TYPE": "Jenis Proyek (Web/Mobile/Design)",
+    "INPUT_RATE": "Rate Per Jam ($)",
+    "INPUT_DESC": "Deskripsi Proyek (Semakin detail semakin baik...)",
+    "BTN_ANALYZE": "Analisis Sekarang",
+    "BTN_ANALYZING": "Sedang Berpikir...",
+    "RESULT_TITLE": "Hasil Audit Proyek",
+    "TABLE_TASK": "Fase & Tugas",
+    "TABLE_HOURS": "Jam",
+    "TABLE_COST": "Biaya",
+    "TABLE_SCOPE": "Out of Scope (Batasan)",
+    "RISK_LABEL": "Tingkat Risiko",
+    "DOWNLOAD_PDF": "Unduh Laporan PDF"
+  },
+  "PRICING": {
+    "TITLE": "Pilih Paket Anda",
+    "SUBTITLE": "Investasi kecil untuk menyelamatkan proyek besar.",
+    "FREE_PLAN": "Starter",
+    "PRO_PLAN": "Professional",
+    "ENT_PLAN": "Enterprise",
+    "BTN_SUBSCRIBE": "Pilih Paket",
+    "ALERT_MSG": "Fitur Langganan sedang dalam pengembangan. Silakan gunakan versi Gratis untuk saat ini!"
+  },
+  "FAQ": {
+    "TITLE": "Pertanyaan Umum",
+    "Q1": "Bagaimana AI menghitung biaya?",
+    "A1": "AI menganalisis deskripsi Anda, memecahnya menjadi tugas teknis, dan mengalikan jam kerja dengan rate per jam Anda.",
+    "Q2": "Apakah datanya akurat?",
+    "A2": "Estimasi ini bersifat 'High-Level'. Sangat akurat untuk proposal awal, namun tetap butuh penyesuaian teknis mendalam.",
+    "Q3": "Bisakah saya ekspor ke PDF?",
+    "A3": "Ya! Setelah analisis selesai, tombol download PDF akan muncul otomatis."
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2024 EstimateScope AI. Hak Cipta Dilindungi.",
+    "PRIVACY": "Kebijakan Privasi",
+    "TERMS": "Syarat & Ketentuan"
+  }
+}

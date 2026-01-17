@@ -1,0 +1,58 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "AUDIT": "Start Audit",
+    "PRICING": "Pricing",
+    "FAQ": "FAQ",
+    "LOGIN": "Login"
+  },
+  "HOME": {
+    "TITLE_PREFIX": "Project Estimation",
+    "TITLE_SUFFIX": "No Drama",
+    "SUBTITLE": "Leverage AI to calculate costs, risks, and boundaries of your software projects accurately in seconds.",
+    "CTA_PRIMARY": "Run Audit Now",
+    "CTA_SECONDARY": "How It Works",
+    "FEATURE_1": "High Accuracy",
+    "FEATURE_2": "Risk Analysis",
+    "FEATURE_3": "PDF Export"
+  },
+  "AUDIT": {
+    "TITLE": "Project Scope Auditor",
+    "SUBTITLE": "Fill in the details below, our AI will break it down into logical phases.",
+    "INPUT_TYPE": "Project Type (Web/Mobile/Design)",
+    "INPUT_RATE": "Hourly Rate ($)",
+    "INPUT_DESC": "Project Description (The more detail, the better...)",
+    "BTN_ANALYZE": "Analyze Now",
+    "BTN_ANALYZING": "Thinking...",
+    "RESULT_TITLE": "Audit Results",
+    "TABLE_TASK": "Phase & Tasks",
+    "TABLE_HOURS": "Hours",
+    "TABLE_COST": "Cost",
+    "TABLE_SCOPE": "Out of Scope",
+    "RISK_LABEL": "Risk Level",
+    "DOWNLOAD_PDF": "Download PDF Report"
+  },
+  "PRICING": {
+    "TITLE": "Choose Your Plan",
+    "SUBTITLE": "Small investment to save big projects.",
+    "FREE_PLAN": "Starter",
+    "PRO_PLAN": "Professional",
+    "ENT_PLAN": "Enterprise",
+    "BTN_SUBSCRIBE": "Choose Plan",
+    "ALERT_MSG": "Subscription feature is under development. Please use the Free version for now!"
+  },
+  "FAQ": {
+    "TITLE": "Frequently Asked Questions",
+    "Q1": "How does AI calculate costs?",
+    "A1": "AI analyzes your description, breaks it down into technical tasks, and multiplies hours by your hourly rate.",
+    "Q2": "Is the data accurate?",
+    "A2": "This is a 'High-Level' estimate. Highly accurate for initial proposals, but still requires deep technical adjustment.",
+    "Q3": "Can I export to PDF?",
+    "A3": "Yes! Once the analysis is complete, the PDF download button will appear automatically."
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2024 EstimateScope AI. All Rights Reserved.",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "Terms & Conditions"
+  }
+}

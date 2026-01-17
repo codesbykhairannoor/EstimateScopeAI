@@ -1,11 +1,50 @@
-<nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
+<nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-red-100">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-white font-bold shadow-amber-200 shadow-lg">E</div>
-      <span class="font-bold text-xl tracking-tight text-slate-800">EstimateScope <span class="text-amber-500">AI</span></span>
+    
+    <a routerLink="/" class="flex items-center gap-2 cursor-pointer group">
+      <div class="w-8 h-8 bg-gradient-to-br from-red-600 to-red-500 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-red-200 group-hover:scale-110 transition-transform">E</div>
+      <span class="font-bold text-xl tracking-tight text-slate-800">EstimateScope <span class="text-red-600">AI</span></span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-500">
+      <a routerLink="/home" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+        {{ lang.t().NAV.HOME }}
+      </a>
+      <a routerLink="/audit" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+        {{ lang.t().NAV.AUDIT }}
+      </a>
+      <a routerLink="/pricing" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+        {{ lang.t().NAV.PRICING }}
+      </a>
+      <a routerLink="/faq" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+        {{ lang.t().NAV.FAQ }}
+      </a>
     </div>
-    <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-500">
-      <span class="text-amber-600 bg-amber-50 px-3 py-1 rounded-full text-[10px] uppercase">Auditor Engine v1.0</span>
+
+    <div class="flex items-center gap-4">
+      <span class="hidden lg:block text-red-600 bg-red-50 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider border border-red-100">
+        v1.0 Beta
+      </span>
+
+      <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+        <button 
+          (click)="lang.switchLang('id')" 
+          [class.bg-white]="lang.selectedLang() === 'id'"
+          [class.text-red-600]="lang.selectedLang() === 'id'"
+          [class.shadow-sm]="lang.selectedLang() === 'id'"
+          class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">
+          ID
+        </button>
+        <button 
+          (click)="lang.switchLang('en')" 
+          [class.bg-white]="lang.selectedLang() === 'en'"
+          [class.text-red-600]="lang.selectedLang() === 'en'"
+          [class.shadow-sm]="lang.selectedLang() === 'en'"
+          class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">
+          EN
+        </button>
+      </div>
     </div>
+
   </div>
 </nav>
