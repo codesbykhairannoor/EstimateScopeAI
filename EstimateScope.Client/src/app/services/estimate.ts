@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class EstimateService {
   // Ganti URL sesuai port backend lu
-  private apiUrl = 'http://localhost:5062/api/estimate/analyze'; 
+  private apiUrl = 'https://estimatescopeai-production-adab.up.railway.app/api/estimate/analyze'; 
 
   constructor(private http: HttpClient) {}
 
