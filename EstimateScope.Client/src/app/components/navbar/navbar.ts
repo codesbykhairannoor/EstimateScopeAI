@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; 
 import { LangService } from '../../services/lang.service';
+import { LimitService } from '../../services/limit.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { LangService } from '../../services/lang.service';
 })
 export class NavbarComponent {
   lang = inject(LangService);
+  limit = inject(LimitService);
 
   // State untuk buka tutup menu mobile
   isMenuOpen = signal(false);

@@ -9,7 +9,7 @@ export class LangService {
   // Pakai : any untuk bypass strict typing sementara agar build sukses
   private dictionary: any = {
     id: {
-      NAV: { HOME: 'Beranda', AUDIT: 'Mulai Audit', PRICING: 'Harga', FAQ: 'Tanya Jawab' },
+      NAV: { HOME: 'Beranda', AUDIT: 'Mulai Audit', PRICING: 'Harga', FAQ: 'Tanya Jawab', SISA: 'Sisa Kredit AI', FREE: 'Gratis' },
       HOME: {
        HERO_TITLE_PREFIX: 'Estimasi Proyek Berbasis',
 HERO_TITLE_SUFFIX: 'AI Tanpa Drama',
@@ -80,7 +80,7 @@ HERO_TITLE_SUFFIX: 'AI Tanpa Drama',
       }
     },
     en: {
-      NAV: { HOME: 'Home', AUDIT: 'Start Audit', PRICING: 'Pricing', FAQ: 'FAQ' },
+      NAV: { HOME: 'Home', AUDIT: 'Start Audit', PRICING: 'Pricing', FAQ: 'FAQ' , SISA: 'AI Credit Left', FREE: 'Free' },
       HOME: {
        HERO_TITLE_PREFIX: 'AI-Powered Estimation,',
 HERO_TITLE_SUFFIX: 'Zero Project Drama',

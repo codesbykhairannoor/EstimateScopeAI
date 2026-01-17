@@ -1,72 +1,65 @@
-<nav class="relative sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-red-100">
-  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    
-    <!-- Logo -->
-    <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-2 cursor-pointer group">
-  <!-- Logo gambar -->
+<nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-red-100">
+      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        
+        <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-2 cursor-pointer group">
+          <img src="favicon.ico" class="w-8 h-8 rounded-lg shadow-lg shadow-red-200 group-hover:scale-110 transition-transform">
+          <span class="font-bold text-xl tracking-tight text-slate-800">
+            EstimateScope <span class="text-red-600">AI</span>
+          </span>
+        </a>
 
-  <!-- Nama brand -->
-  <span class="font-bold text-xl tracking-tight text-slate-800">
-    EstimateScope <span class="text-red-600">AI</span>
-  </span>
-</a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-500">
+          <a routerLink="/home" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+            {{ lang.t().NAV.HOME }}
+          </a>
+          <a routerLink="/audit" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+            {{ lang.t().NAV.AUDIT }}
+          </a>
+          <a routerLink="/pricing" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+            {{ lang.t().NAV.PRICING }}
+          </a>
+          <a routerLink="/faq" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
+            {{ lang.t().NAV.FAQ }}
+          </a>
+        </div>
 
+        <div class="flex items-center gap-3">
+          
+          <div class="hidden lg:flex items-center gap-1 px-3 py-1 rounded-full border text-xs font-bold"
+               [class]="limit.remaining() > 0 ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-600 border-red-200'">
+            <span>⚡ {{ limit.remaining() }}/3 {{ lang.t().NAV.FREE }}</span>
+          </div>
 
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-500">
-      <a routerLink="/home" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
-        {{ lang.t().NAV.HOME }}
-      </a>
-      <a routerLink="/audit" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
-        {{ lang.t().NAV.AUDIT }}
-      </a>
-      <a routerLink="/pricing" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
-        {{ lang.t().NAV.PRICING }}
-      </a>
-      <a routerLink="/faq" routerLinkActive="text-red-600 bg-red-50" class="px-3 py-1 rounded-lg hover:text-red-600 transition-colors">
-        {{ lang.t().NAV.FAQ }}
-      </a>
-    </div>
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <button (click)="lang.switchLang('id')" [class.bg-white]="lang.selectedLang() === 'id'" [class.text-red-600]="lang.selectedLang() === 'id'" class="px-2 md:px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">ID</button>
+            <button (click)="lang.switchLang('en')" [class.bg-white]="lang.selectedLang() === 'en'" [class.text-red-600]="lang.selectedLang() === 'en'" class="px-2 md:px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">EN</button>
+          </div>
 
-    <!-- Right controls: Language & Hamburger -->
-    <div class="flex items-center gap-2 md:gap-4">
-      <!-- Language Switch -->
-      <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
-        <button (click)="lang.switchLang('id')" [class.bg-white]="lang.selectedLang() === 'id'" [class.text-red-600]="lang.selectedLang() === 'id'" class="px-2 md:px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">
-          ID
-        </button>
-        <button (click)="lang.switchLang('en')" [class.bg-white]="lang.selectedLang() === 'en'" [class.text-red-600]="lang.selectedLang() === 'en'" class="px-2 md:px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-400">
-          EN
-        </button>
+          <button (click)="toggleMenu()" class="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
+            <svg *ngIf="!isMenuOpen()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg *ngIf="isMenuOpen()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <!-- Hamburger Button -->
-      <button (click)="toggleMenu()" class="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-        <svg *ngIf="!isMenuOpen()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg *ngIf="isMenuOpen()" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-  </div>
+      <div *ngIf="isMenuOpen()" class="md:hidden bg-white border-b border-red-100 absolute top-16 w-full left-0 shadow-2xl z-40">
+        <div class="px-6 py-6 flex flex-col gap-2 font-bold text-slate-600">
+          
+          <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl mb-2">
+            <span class="text-sm text-slate-500">{{ lang.t().NAV.SISA }}</span>
+            <span class="font-bold" [class]="limit.remaining() > 0 ? 'text-green-600' : 'text-red-600'">
+              {{ limit.remaining() }} / 3
+            </span>
+          </div>
 
-  <!-- Mobile Menu -->
-  <div *ngIf="isMenuOpen()" class="md:hidden bg-white border-b border-red-100 absolute top-16 w-full left-0 shadow-2xl z-40">
-    <div class="px-6 py-6 flex flex-col gap-2 font-bold text-slate-600">
-      <a routerLink="/home" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">
-        {{ lang.t().NAV.HOME }}
-      </a>
-      <a routerLink="/audit" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">
-        {{ lang.t().NAV.AUDIT }}
-      </a>
-      <a routerLink="/pricing" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">
-        {{ lang.t().NAV.PRICING }}
-      </a>
-      <a routerLink="/faq" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">
-        {{ lang.t().NAV.FAQ }}
-      </a>
-    </div>
-  </div>
-</nav>
+          <a routerLink="/home" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">{{ lang.t().NAV.HOME }}</a>
+          <a routerLink="/audit" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">{{ lang.t().NAV.AUDIT }}</a>
+          <a routerLink="/pricing" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">{{ lang.t().NAV.PRICING }}</a>
+          <a routerLink="/faq" (click)="closeMenu()" routerLinkActive="bg-red-50 text-red-600" class="p-4 rounded-xl hover:bg-slate-50 transition-colors">{{ lang.t().NAV.FAQ }}</a>
+        </div>
+      </div>
+    </nav>

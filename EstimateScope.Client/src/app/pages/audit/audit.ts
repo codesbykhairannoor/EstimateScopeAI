@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// HAPUS TranslateModule BIAR GA CRASH
 import { EstimateService } from '../../services/estimate';
-import { LangService } from '../../services/lang.service'; // <--- Import Service Bahasa Manual
+import { LangService } from '../../services/lang.service';
+import { LimitService } from '../../services/limit.service'; // <--- Import LimitService
 import { HeroComponent } from '../../components/hero/hero'; 
 import { AuditResultComponent } from '../../components/audit-result/audit-result';
 
 @Component({
-  selector: 'app-audit-page', // Kasih selector biar rapi
+  selector: 'app-audit-page',
   standalone: true,
-  imports: [CommonModule, HeroComponent, AuditResultComponent], // GAK ADA TranslateModule
+  imports: [CommonModule, HeroComponent, AuditResultComponent],
   template: `
     <div class="py-12 bg-slate-50 min-h-screen">
       
@@ -45,14 +45,21 @@ import { AuditResultComponent } from '../../components/audit-result/audit-result
 })
 export class AuditPage {
   private estimateService = inject(EstimateService);
-  lang = inject(LangService); // <--- INJECT DISINI
-  
+  lang = inject(LangService);
+  limit = inject(LimitService); // <--- INJECT DISINI
+
   isAnalyzing = false;
   results: any[] = [];
   currentRisk = 'Low';
   lastProjectData: any = {};
 
   handleAnalyze(formData: any) {
+    // 1. CEK LIMIT DULU SEBELUM KIRIM KE BACKEND
+    if (!this.limit.canAudit()) {
+      alert("Jatah limit bulanan Anda (3x) sudah habis! Tunggu bulan depan ya.");
+      return;
+    }
+
     this.isAnalyzing = true;
     this.lastProjectData = formData;
     this.results = []; 
@@ -61,15 +68,12 @@ export class AuditPage {
       next: (res: any) => {
         console.log('📦 Data Mentah dari Backend:', res);
 
-        // --- SATPAM DATA (JSON PARSING) ---
-        // Kadang .NET/Gemini ngirim string JSON, bukan Object langsung.
         let finalData = res;
         if (typeof res === 'string') {
             try {
                 finalData = JSON.parse(res);
             } catch (e) {
                 console.error("Gagal parsing JSON:", e);
-                // Fallback kalau JSON rusak
                 finalData = { data: [], riskLevel: 'Unknown' };
             }
         }
@@ -77,11 +81,14 @@ export class AuditPage {
         this.results = finalData.data || [];
         this.currentRisk = finalData.riskLevel || 'Low';
         this.isAnalyzing = false;
+
+        // 2. POTONG KUOTA HANYA JIKA SUKSES
+        this.limit.useCredit(); 
       },
       error: (err) => {
         console.error("🔥 Error Frontend:", err);
         this.isAnalyzing = false;
-        alert('Gagal menghubungi AI. Pastikan Backend .NET jalan & tidak di-block CORS!');
+        alert('Gagal menghubungi AI. Coba lagi nanti.');
       }
     });
   }
